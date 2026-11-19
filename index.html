@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CuRa Restaurant — Questionnaire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🍽️ CuRa Restaurant</h1>
+    <h2>Questionnaire Form — استمارة الاستبيان</h2>
+    <p class="subtitle">
+      We are senior students at <strong>Thebes Technological University</strong><br/>
+      Faculty of Hotel and Tourism Services Technology, Luxor.
+    </p>
+    <p class="note">⚠️ Your answers are for statistical purposes only</p>
+  </div>
+
+  <form id="surveyForm">
+
+    <div class="question">
+      <label>1 — Gender — الجنس *</label>
+      <div class="options">
+        <label><input type="radio" name="gender" value="Male" required> Male — ذكر</label>
+        <label><input type="radio" name="gender" value="Female"> Female — أنثى</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>2 — Age — العمر *</label>
+      <div class="options">
+        <label><input type="radio" name="age" value="Less than 21" required> Less than 21</label>
+        <label><input type="radio" name="age" value="21 to 35"> 21 to 35</label>
+        <label><input type="radio" name="age" value="36 to 50"> 36 to 50</label>
+        <label><input type="radio" name="age" value="Over 50"> Over 50</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>3 — Nationality — الجنسية *</label>
+      <div class="options">
+        <label><input type="radio" name="nationality" value="Egyptian" required> Egyptian — مصري</label>
+        <label><input type="radio" name="nationality" value="Foreign"> Foreign — أجنبي</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>4 — Menu Type — نوع القائمة *</label>
+      <div class="options">
+        <label><input type="radio" name="menu" value="A la carte" required> A la carte</label>
+        <label><input type="radio" name="menu" value="QR Code"> QR Code</label>
+        <label><input type="radio" name="menu" value="Board"> Board</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>5 — Cuisine Type — نوع الطعام *</label>
+      <div class="options">
+        <label><input type="radio" name="cuisine" value="Egyptian" required> Egyptian — مصري</label>
+        <label><input type="radio" name="cuisine" value="International"> International — عالمي</label>
+        <label><input type="radio" name="cuisine" value="Mixed"> Mixed — متنوع</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>6 — Staff Uniform — ملابس الموظفين *</label>
+      <div class="options">
+        <label><input type="radio" name="uniform" value="Classic" required> Classic — كلاسيك</label>
+        <label><input type="radio" name="uniform" value="Casual"> Casual — كاجوال</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>7 — Special Needs Corner — ذوو الاحتياجات *</label>
+      <div class="options">
+        <label><input type="radio" name="special_needs" value="Yes" required> Yes — نعم</label>
+        <label><input type="radio" name="special_needs" value="No"> No — لا</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>8 — Service Type — نوع الخدمة *</label>
+      <div class="options">
+        <label><input type="radio" name="service" value="Table Service" required> Table Service — طاولة</label>
+        <label><input type="radio" name="service" value="Take Away"> Take Away — تيك أواي</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>9 — Seating — الجلوس *</label>
+      <div class="options">
+        <label><input type="radio" name="seating" value="Indoor" required> Indoor — داخلي</label>
+        <label><input type="radio" name="seating" value="Outdoor (Nile View)"> Outdoor / Nile View — خارجي</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>10 — Parking Support — دعم الموقف *</label>
+      <div class="options">
+        <label><input type="radio" name="parking" value="Washing Shop" required> Washing Shop — غسيل</label>
+        <label><input type="radio" name="parking" value="Maintenance Center"> Maintenance — صيانة</label>
+        <label><input type="radio" name="parking" value="Gas Station"> Gas Station — وقود</label>
+        <label><input type="radio" name="parking" value="All"> All — الكل</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>Suggestions — اقتراحات</label>
+      <textarea name="suggestions" placeholder="Write here..." rows="4"></textarea>
+    </div>
+
+    <button type="submit" id="submitBtn">Submit — إرسال ✅</button>
+
+    <div id="successMsg" class="msg success" style="display:none">
+      ✅ Thank you! — شكراً! تم تسجيل إجابتك.
+    </div>
+    <div id="errorMsg" class="msg error" style="display:none">
+      ❌ Error — حدث خطأ، حاول مرة أخرى.
+    </div>
+
+  </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
