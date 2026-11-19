@@ -1,129 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CuRa Restaurant — Questionnaire</title>
+  <title>استبيان مشروع تخرج — مطعم CuRa</title>
+  <!-- Google Fonts: Cairo & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div class="container">
 
-  <div class="header">
-    <h1>🍽️ CuRa Restaurant</h1>
-    <h2>Questionnaire Form — استمارة الاستبيان</h2>
-    <p class="subtitle">
-      We are senior students at <strong>Thebes Technological University</strong><br/>
-      Faculty of Hotel and Tourism Services Technology, Luxor.
-    </p>
-    <p class="note">⚠️ Your answers are for statistical purposes only</p>
+  <div class="main-wrapper">
+
+    <!-- Header Section -->
+    <header class="hero-header">
+      <div class="badge">مشروع تخرج | Graduation Project</div>
+      <h1 class="logo-title">CuRa <span>Restaurant</span></h1>
+      <p class="university-tag">
+        جامعة طيبة التكنولوجية — كلية تكنولوجيا الخدمات الفندقية والسياحية بالأقصر<br>
+        <span class="en-sub">Thebes Technological University — Faculty of Hotel & Tourism Services Technology, Luxor</span>
+      </p>
+    </header>
+
+    <!-- Project Introduction Card (الجزء التعريفي الجديد) -->
+    <section class="about-card">
+      <div class="about-icon">🏛️🍽️</div>
+      <div class="about-content">
+        <h3>عن مشروع مطعم CuRa — About The Project</h3>
+        <p>
+          يهدف مشروعنا إلى دراسة جدوى وتصميم إنشاء <strong>مطعم كورا (CuRa Restaurant)</strong> كوجهة ضيافة عصرية واستثنائية في قلب مدينة <strong>الأقصر</strong> الساحرة. 
+          يقدم المطعم تجربة طعام فريدة تجمع بين الأطباق المصرية الأصيلة والمطبخ العالمي المتنوع، بإطلالة مميزة وخدمات متكاملة تدعم السياحة وتلبي تطلعات الزوار المحليين والدوليين.
+        </p>
+        <div class="quick-highlights">
+          <div class="highlight-item">📍 <strong>الموقع:</strong> الأقصر (بالقرب من المعالم السياحية)</div>
+          <div class="highlight-item">🍲 <strong>المطبخ:</strong> طعام متنوع (Mixed Cuisine)</div>
+          <div class="highlight-item">🎯 <strong>الهدف:</strong> توفير أعلى معايير الجودة والضيافة الحديثة</div>
+        </div>
+        <p class="survey-purpose">
+          مشاركتك في هذا الاستبيان تستغرق أقل من دقيقتين، وتعتبر حجر الأساس لمساعدتنا في صياغة دراسة السوق بدقة. <em>(إجاباتك سرية وتستخدم لأغراض البحث الأكاديمي فقط)</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Survey Form -->
+    <form id="surveyForm" class="survey-form">
+
+      <!-- Q1 Gender -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">1</span> الجنس — Gender <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="gender" value="Male" required>
+            <span class="radio-box">👨 ذكر — Male</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="gender" value="Female">
+            <span class="radio-box">👩 أنثى — Female</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q2 Age -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">2</span> الفئة العمرية — Age <span class="required">*</span></label>
+        <div class="options-grid grid-2">
+          <label class="custom-radio">
+            <input type="radio" name="age" value="Less than 21" required>
+            <span class="radio-box">أقل من 21 سنة (Less than 21)</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="age" value="21 to 35">
+            <span class="radio-box">من 21 إلى 35 سنة (21 to 35)</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="age" value="36 to 50">
+            <span class="radio-box">من 36 إلى 50 سنة (36 to 50)</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="age" value="Over 50">
+            <span class="radio-box">أكثر من 50 سنة (Over 50)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q3 Nationality -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">3</span> الجنسية — Nationality <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="nationality" value="Egyptian" required>
+            <span class="radio-box">🇪🇬 مصري — Egyptian</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="nationality" value="Foreign">
+            <span class="radio-box">🌍 أجنبي — Foreign</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q4 Menu -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">4</span> ما شكل قائمة الطعام المفضل لك؟ — Menu Style <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="menu" value="A la carte" required>
+            <span class="radio-box">📖 قائمة ورقية تقليدية (A la carte)</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="menu" value="QR Code">
+            <span class="radio-box">📱 مسح إلكتروني (QR Code)</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="menu" value="Board">
+            <span class="radio-box">📋 شاشات عرض جدارية (Board)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q5 Cuisine -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">5</span> نوع الطعام المفضل في مطعم الأقصر؟ — Preferred Cuisine <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="cuisine" value="Egyptian" required>
+            <span class="radio-box">🥘 مصري وأكلات شرقية — Egyptian</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="cuisine" value="International">
+            <span class="radio-box">🍝 عالمي وغربي — International</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="cuisine" value="Mixed">
+            <span class="radio-box">🌟 قائمة متنوعة تشمل الكل — Mixed</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q6 Uniform -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">6</span> المظهر المفضل لزي فريق العمل بالمطعم؟ — Staff Uniform <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="uniform" value="Classic" required>
+            <span class="radio-box">👔 كلاسيكي ورسمي — Classic</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="uniform" value="Casual">
+            <span class="radio-box">👕 كاجوال ومريح — Casual</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q7 Special Needs -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">7</span> ما رأيك في تخصيص ركن ومسارات لذوي الاحتياجات الخاصة؟ <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="special_needs" value="Yes" required>
+            <span class="radio-box">♿ أوافق وبشدة — Yes (مهم جداً)</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="special_needs" value="No">
+            <span class="radio-box">غير ضروري — No</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q8 Service -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">8</span> نمط الخدمة المفضل لديك؟ — Service Style <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="service" value="Table Service" required>
+            <span class="radio-box">🍽️ خدمة طاولات وجلوس — Table Service</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="service" value="Take Away">
+            <span class="radio-box">🛍️ استلام سريع وسفري — Take Away</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q9 Seating -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">9</span> تفضيل منطقة الجلوس؟ — Seating Area <span class="required">*</span></label>
+        <div class="options-grid">
+          <label class="custom-radio">
+            <input type="radio" name="seating" value="Indoor" required>
+            <span class="radio-box">❄️ صالة داخلية مكيفة — Indoor</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="seating" value="Outdoor (Nile View)">
+            <span class="radio-box">🌅 تراس خارجي بإطلالة نيلية — Outdoor / Nile View</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q10 Parking -->
+      <div class="question-block">
+        <label class="q-label"><span class="q-num">10</span> الخدمات الملحقة بموقف السيارات التي تفضل تواجدها؟ <span class="required">*</span></label>
+        <div class="options-grid grid-2">
+          <label class="custom-radio">
+            <input type="radio" name="parking" value="Washing Shop" required>
+            <span class="radio-box">🚗 خدمة غسيل سيارات — Car Wash</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="parking" value="Maintenance Center">
+            <span class="radio-box">🔧 مركز صيانة سريع — Maintenance</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="parking" value="Gas Station">
+            <span class="radio-box">⛽ محطة تزويد وقود — Gas Station</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="parking" value="All">
+            <span class="radio-box">⭐ جميع ما سبق — All of the above</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Suggestions -->
+      <div class="question-block">
+        <label class="q-label">💡 اقتراحاتك أو ملاحظاتك لتطوير المشروع (اختياري)</label>
+        <textarea name="suggestions" placeholder="اكتب اقتراحاتك هنا..." rows="3"></textarea>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn-submit">
+        <span>إرسال الإجابات — Submit</span> 🚀
+      </button>
+
+      <div id="successMsg" class="alert-box success-alert" style="display:none">
+        🎉 <strong>شكراً جزيلاً لك!</strong> تم تسجيل إجاباتك بنجاح وسيكون لها أثر كبير في مشروع تخرجنا.
+      </div>
+      <div id="errorMsg" class="alert-box error-alert" style="display:none">
+        ⚠️ <strong>حدث خطأ:</strong> يرجى التأكد من الإجابة على جميع الأسئلة المطلوبة والمحاولة مرة أخرى.
+      </div>
+
+    </form>
+
+    <footer class="main-footer">
+      <p>© 2026 فريق مشروع تخرج CuRa Restaurant | جميع الحقوق محفوظة</p>
+    </footer>
+
   </div>
 
-  <form id="surveyForm">
-
-    <div class="question">
-      <label>1 — Gender — الجنس *</label>
-      <div class="options">
-        <label><input type="radio" name="gender" value="Male" required> Male — ذكر</label>
-        <label><input type="radio" name="gender" value="Female"> Female — أنثى</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>2 — Age — العمر *</label>
-      <div class="options">
-        <label><input type="radio" name="age" value="Less than 21" required> Less than 21</label>
-        <label><input type="radio" name="age" value="21 to 35"> 21 to 35</label>
-        <label><input type="radio" name="age" value="36 to 50"> 36 to 50</label>
-        <label><input type="radio" name="age" value="Over 50"> Over 50</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>3 — Nationality — الجنسية *</label>
-      <div class="options">
-        <label><input type="radio" name="nationality" value="Egyptian" required> Egyptian — مصري</label>
-        <label><input type="radio" name="nationality" value="Foreign"> Foreign — أجنبي</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>4 — Menu Type — نوع القائمة *</label>
-      <div class="options">
-        <label><input type="radio" name="menu" value="A la carte" required> A la carte</label>
-        <label><input type="radio" name="menu" value="QR Code"> QR Code</label>
-        <label><input type="radio" name="menu" value="Board"> Board</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>5 — Cuisine Type — نوع الطعام *</label>
-      <div class="options">
-        <label><input type="radio" name="cuisine" value="Egyptian" required> Egyptian — مصري</label>
-        <label><input type="radio" name="cuisine" value="International"> International — عالمي</label>
-        <label><input type="radio" name="cuisine" value="Mixed"> Mixed — متنوع</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>6 — Staff Uniform — ملابس الموظفين *</label>
-      <div class="options">
-        <label><input type="radio" name="uniform" value="Classic" required> Classic — كلاسيك</label>
-        <label><input type="radio" name="uniform" value="Casual"> Casual — كاجوال</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>7 — Special Needs Corner — ذوو الاحتياجات *</label>
-      <div class="options">
-        <label><input type="radio" name="special_needs" value="Yes" required> Yes — نعم</label>
-        <label><input type="radio" name="special_needs" value="No"> No — لا</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>8 — Service Type — نوع الخدمة *</label>
-      <div class="options">
-        <label><input type="radio" name="service" value="Table Service" required> Table Service — طاولة</label>
-        <label><input type="radio" name="service" value="Take Away"> Take Away — تيك أواي</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>9 — Seating — الجلوس *</label>
-      <div class="options">
-        <label><input type="radio" name="seating" value="Indoor" required> Indoor — داخلي</label>
-        <label><input type="radio" name="seating" value="Outdoor (Nile View)"> Outdoor / Nile View — خارجي</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>10 — Parking Support — دعم الموقف *</label>
-      <div class="options">
-        <label><input type="radio" name="parking" value="Washing Shop" required> Washing Shop — غسيل</label>
-        <label><input type="radio" name="parking" value="Maintenance Center"> Maintenance — صيانة</label>
-        <label><input type="radio" name="parking" value="Gas Station"> Gas Station — وقود</label>
-        <label><input type="radio" name="parking" value="All"> All — الكل</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <label>Suggestions — اقتراحات</label>
-      <textarea name="suggestions" placeholder="Write here..." rows="4"></textarea>
-    </div>
-
-    <button type="submit" id="submitBtn">Submit — إرسال ✅</button>
-
-    <div id="successMsg" class="msg success" style="display:none">
-      ✅ Thank you! — شكراً! تم تسجيل إجابتك.
-    </div>
-    <div id="errorMsg" class="msg error" style="display:none">
-      ❌ Error — حدث خطأ، حاول مرة أخرى.
-    </div>
-
-  </form>
-</div>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
