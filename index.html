@@ -4,44 +4,316 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>استبيان مشروع تخرج — مطعم CuRa</title>
-  <!-- Google Fonts: Cairo & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #c59d5f;
+      --primary-hover: #b0894c;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .main-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero-header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+      padding: 40px 25px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(197, 157, 95, 0.2);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .logo-title {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .logo-title span { color: var(--primary); }
+
+    .university-tag {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .en-sub {
+      display: block;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 4px;
+      direction: ltr;
+    }
+
+    .about-card {
+      margin: 25px;
+      background: #fdfbf7;
+      border: 1.5px solid #f1e4d0;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .about-card h3 {
+      color: #8c682d;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      color: #475569;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .quick-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .highlight-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+
+    .survey-purpose {
+      font-size: 0.85rem !important;
+      color: #b45309 !important;
+      font-weight: 600;
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 10px;
+      margin-bottom: 0 !important;
+    }
+
+    .survey-form { padding: 10px 25px 35px; }
+
+    .question-block {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .question-block:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(197, 157, 95, 0.1);
+    }
+
+    .q-label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-left: 6px;
+    }
+
+    .required { color: #ef4444; }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .options-grid.grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .custom-radio {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .custom-radio input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .radio-box {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.92rem;
+      color: #334155;
+      transition: all 0.2s ease;
+    }
+
+    .custom-radio:hover .radio-box {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .custom-radio input[type="radio"]:checked + .radio-box {
+      background: #fef9ee;
+      border-color: var(--primary);
+      color: #8c682d;
+      font-weight: 700;
+    }
+
+    textarea {
+      width: 100%;
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      color: #1e293b;
+      padding: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #ffffff;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 10px;
+      box-shadow: 0 4px 14px rgba(197, 157, 95, 0.4);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(197, 157, 95, 0.5);
+    }
+
+    .alert-box {
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .success-alert {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+
+    .error-alert {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .main-footer {
+      text-align: center;
+      padding: 15px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      .hero-header { padding: 30px 15px; }
+      .logo-title { font-size: 1.8rem; }
+      .about-card { margin: 15px; padding: 15px; }
+      .survey-form { padding: 10px 15px 25px; }
+      .options-grid.grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
   <div class="main-wrapper">
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="hero-header">
       <div class="badge">مشروع تخرج | Graduation Project</div>
       <h1 class="logo-title">CuRa <span>Restaurant</span></h1>
       <p class="university-tag">
-        جامعة طيبة التكنولوجية — كلية تكنولوجيا الخدمات الفندقية والسياحية بالأقصر<br>
+        جامعة طيبة التكنولوجية — كلية تكنولوجيا الخدمات الفندقية والسياحية بالأقصر
         <span class="en-sub">Thebes Technological University — Faculty of Hotel & Tourism Services Technology, Luxor</span>
       </p>
     </header>
 
-    <!-- Project Introduction Card (الجزء التعريفي الجديد) -->
+    <!-- About Section -->
     <section class="about-card">
-      <div class="about-icon">🏛️🍽️</div>
-      <div class="about-content">
-        <h3>عن مشروع مطعم CuRa — About The Project</h3>
-        <p>
-          يهدف مشروعنا إلى دراسة جدوى وتصميم إنشاء <strong>مطعم كورا (CuRa Restaurant)</strong> كوجهة ضيافة عصرية واستثنائية في قلب مدينة <strong>الأقصر</strong> الساحرة. 
-          يقدم المطعم تجربة طعام فريدة تجمع بين الأطباق المصرية الأصيلة والمطبخ العالمي المتنوع، بإطلالة مميزة وخدمات متكاملة تدعم السياحة وتلبي تطلعات الزوار المحليين والدوليين.
-        </p>
-        <div class="quick-highlights">
-          <div class="highlight-item">📍 <strong>الموقع:</strong> الأقصر (بالقرب من المعالم السياحية)</div>
-          <div class="highlight-item">🍲 <strong>المطبخ:</strong> طعام متنوع (Mixed Cuisine)</div>
-          <div class="highlight-item">🎯 <strong>الهدف:</strong> توفير أعلى معايير الجودة والضيافة الحديثة</div>
-        </div>
-        <p class="survey-purpose">
-          مشاركتك في هذا الاستبيان تستغرق أقل من دقيقتين، وتعتبر حجر الأساس لمساعدتنا في صياغة دراسة السوق بدقة. <em>(إجاباتك سرية وتستخدم لأغراض البحث الأكاديمي فقط)</em>.
-        </p>
+      <h3>🏛️🍽️ عن مشروع مطعم CuRa — About The Project</h3>
+      <p>
+        يهدف مشروعنا إلى دراسة جدوى وتصميم إنشاء <strong>مطعم كورا (CuRa Restaurant)</strong> كوجهة ضيافة عصرية في قلب مدينة <strong>الأقصر</strong>، يقدم تجربة طعام فريدة تجمع بين الأطباق المصرية الأصيلة والمطبخ العالمي المتنوع، بإطلالة مميزة وخدمات متكاملة تدعم السياحة وتلبي تطلعات الزوار.
+      </p>
+      <div class="quick-highlights">
+        <div class="highlight-item">📍 <strong>الموقع:</strong> الأقصر</div>
+        <div class="highlight-item">🍲 <strong>المطبخ:</strong> طعام متنوع (Mixed Cuisine)</div>
+        <div class="highlight-item">🎯 <strong>الهدف:</strong> توفير أعلى معايير الجودة والضيافة</div>
       </div>
+      <p class="survey-purpose">
+        مشاركتك في هذا الاستبيان تستغرق دقيقة واحدة فقط وتساعدنا في إعداد دراسة السوق لمشروع التخرج. (إجاباتك سرية للأغراض الأكاديمية فقط).
+      </p>
     </section>
 
     <!-- Survey Form -->
@@ -102,11 +374,11 @@
 
       <!-- Q4 Menu -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">4</span> ما شكل قائمة الطعام المفضل لك؟ — Menu Style <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">4</span> شكل قائمة الطعام المفضل؟ — Menu Style <span class="required">*</span></label>
         <div class="options-grid">
           <label class="custom-radio">
             <input type="radio" name="menu" value="A la carte" required>
-            <span class="radio-box">📖 قائمة ورقية تقليدية (A la carte)</span>
+            <span class="radio-box">📖 قائمة ورقية (A la carte)</span>
           </label>
           <label class="custom-radio">
             <input type="radio" name="menu" value="QR Code">
@@ -121,7 +393,7 @@
 
       <!-- Q5 Cuisine -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">5</span> نوع الطعام المفضل في مطعم الأقصر؟ — Preferred Cuisine <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">5</span> نوع الطعام المفضل في مطعم الأقصر؟ <span class="required">*</span></label>
         <div class="options-grid">
           <label class="custom-radio">
             <input type="radio" name="cuisine" value="Egyptian" required>
@@ -140,7 +412,7 @@
 
       <!-- Q6 Uniform -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">6</span> المظهر المفضل لزي فريق العمل بالمطعم؟ — Staff Uniform <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">6</span> المظهر المفضل لزي فريق العمل بالمطعم؟ <span class="required">*</span></label>
         <div class="options-grid">
           <label class="custom-radio">
             <input type="radio" name="uniform" value="Classic" required>
@@ -155,7 +427,7 @@
 
       <!-- Q7 Special Needs -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">7</span> ما رأيك في تخصيص ركن ومسارات لذوي الاحتياجات الخاصة؟ <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">7</span> توفير ركن ومسارات لذوي الاحتياجات الخاصة؟ <span class="required">*</span></label>
         <div class="options-grid">
           <label class="custom-radio">
             <input type="radio" name="special_needs" value="Yes" required>
@@ -170,7 +442,7 @@
 
       <!-- Q8 Service -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">8</span> نمط الخدمة المفضل لديك؟ — Service Style <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">8</span> نمط الخدمة المفضل لديك؟ <span class="required">*</span></label>
         <div class="options-grid">
           <label class="custom-radio">
             <input type="radio" name="service" value="Table Service" required>
@@ -185,7 +457,7 @@
 
       <!-- Q9 Seating -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">9</span> تفضيل منطقة الجلوس؟ — Seating Area <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">9</span> تفضيل منطقة الجلوس بالمطعم؟ <span class="required">*</span></label>
         <div class="options-grid">
           <label class="custom-radio">
             <input type="radio" name="seating" value="Indoor" required>
@@ -200,52 +472,89 @@
 
       <!-- Q10 Parking -->
       <div class="question-block">
-        <label class="q-label"><span class="q-num">10</span> الخدمات الملحقة بموقف السيارات التي تفضل تواجدها؟ <span class="required">*</span></label>
+        <label class="q-label"><span class="q-num">10</span> الخدمات الملحقة بموقف السيارات؟ <span class="required">*</span></label>
         <div class="options-grid grid-2">
           <label class="custom-radio">
             <input type="radio" name="parking" value="Washing Shop" required>
-            <span class="radio-box">🚗 خدمة غسيل سيارات — Car Wash</span>
+            <span class="radio-box">🚗 غسيل سيارات — Car Wash</span>
           </label>
           <label class="custom-radio">
             <input type="radio" name="parking" value="Maintenance Center">
-            <span class="radio-box">🔧 مركز صيانة سريع — Maintenance</span>
+            <span class="radio-box">🔧 صيانة سريعة — Maintenance</span>
           </label>
           <label class="custom-radio">
             <input type="radio" name="parking" value="Gas Station">
-            <span class="radio-box">⛽ محطة تزويد وقود — Gas Station</span>
+            <span class="radio-box">⛽ محطة وقود — Gas Station</span>
           </label>
           <label class="custom-radio">
             <input type="radio" name="parking" value="All">
-            <span class="radio-box">⭐ جميع ما سبق — All of the above</span>
+            <span class="radio-box">⭐ جميع ما سبق — All</span>
           </label>
         </div>
       </div>
 
       <!-- Suggestions -->
       <div class="question-block">
-        <label class="q-label">💡 اقتراحاتك أو ملاحظاتك لتطوير المشروع (اختياري)</label>
-        <textarea name="suggestions" placeholder="اكتب اقتراحاتك هنا..." rows="3"></textarea>
+        <label class="q-label">💡 اقتراحاتك لتطوير فكرة المطعم (اختياري)</label>
+        <textarea name="suggestions" placeholder="اكتب ملاحظاتك أو اقتراحاتك هنا..." rows="3"></textarea>
       </div>
 
       <button type="submit" id="submitBtn" class="btn-submit">
-        <span>إرسال الإجابات — Submit</span> 🚀
+        إرسال الإجابات — Submit ✅
       </button>
 
       <div id="successMsg" class="alert-box success-alert" style="display:none">
-        🎉 <strong>شكراً جزيلاً لك!</strong> تم تسجيل إجاباتك بنجاح وسيكون لها أثر كبير في مشروع تخرجنا.
+        🎉 <strong>شكراً جزيلاً لك!</strong> تم تسجيل إجاباتك بنجاح في دراسة المشروع.
       </div>
       <div id="errorMsg" class="alert-box error-alert" style="display:none">
-        ⚠️ <strong>حدث خطأ:</strong> يرجى التأكد من الإجابة على جميع الأسئلة المطلوبة والمحاولة مرة أخرى.
+        ⚠️ <strong>حدث خطأ:</strong> يرجى التأكد من الإجابة على جميع الأسئلة والمحاولة مجدداً.
       </div>
 
     </form>
 
     <footer class="main-footer">
-      <p>© 2026 فريق مشروع تخرج CuRa Restaurant | جميع الحقوق محفوظة</p>
+      <p>© 2026 مشروع تخرج مطعم CuRa — كلية تكنولوجيا الخدمات الفندقية والسياحية بالأقصر</p>
     </footer>
 
   </div>
 
-  <script src="js/script.js"></script>
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDpOy99iPsIUk_luw50hdG2B-Bb9KmtvlvjPiETdoyE49xwl0zPyD2QH4zeykkiNCX/exec";
+
+    document.getElementById("surveyForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById("submitBtn");
+      const successMsg = document.getElementById("successMsg");
+      const errorMsg = document.getElementById("errorMsg");
+
+      successMsg.style.display = "none";
+      errorMsg.style.display = "none";
+
+      const formData = new FormData(this);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value; });
+      data["timestamp"] = new Date().toLocaleString("ar-EG");
+
+      btn.disabled = true;
+      btn.textContent = "جاري الإرسال... ⏳";
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        successMsg.style.display = "block";
+        this.reset();
+      } catch (err) {
+        errorMsg.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "إرسال الإجابات — Submit ✅";
+      }
+    });
+  </script>
 </body>
 </html>
